@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS Form Validation</title>
+</head>
+<body>
+	<form onsubmit="validateForm(); return false;">
+		<label for="firstName">First Name</label>
+		<input type="text" id="firstName">
+		<label for="lastName">Last Name</label>
+		<input type="text" id="lastName">
+		<label for="email">Email</label>
+		<input type="text" id="email">
+		<button type="submit">Submit</button>
+	</form>
+
+	<div id="firstNameOutput"></div>
+	<div id="lastNameOutput"></div>
+	<div id="emailOutput"></div>
+<script>
+function validateForm() {
+	//did they input a first name
+	var firstName = document.getElementById('firstName').value;
+	if (!firstName) {
+		alert('Please enter your first name');
+	}
+	//did they input a second name
+	var lastName = document.getElementById('lastName').value;
+	if (!lastName) {
+		alert('Please enter your last name');
+	}
+	//is there a valid email
+	var email = document.getElementById('email').value;
+	if (!email) {
+		alert('Please enter an email address');
+	}
+	else if(email.indexOf('@') < 0 || email.indexOf('.') < 0) {
+		alert('Please enter a valid email address');
+	}
+	else {
+		//print form inputs on the page
+		document.getElementById('firstNameOutput').innerHTML = firstName;
+		document.getElementById('lastNameOutput').innerHTML = lastName;
+		document.getElementById('emailOutput').innerHTML = email;
+		return true;
+	}
+}
+
+</script>
+</body>
+</html>

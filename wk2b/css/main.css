@@ -1,0 +1,70 @@
+/* HELPERS */
+.clearfix::after {
+  clear: both; }
+
+/* MOBILE FIRST STYLING */
+/* STYLING FOR HEADER */
+nav ul {
+  margin: 0;
+  padding: 0; }
+  nav ul li {
+    list-style-type: none; }
+    nav ul li a {
+      text-decoration: none;
+      color: #9C9C9A;
+      text-transform: uppercase;
+      font-family: Helvetica, sans-serif;
+      font-weight: 600;
+      font-size: 1.5em;
+      line-height: 1.2em; }
+    nav ul li a:hover {
+      color: red; }
+
+/* STYLING FOR THE BODY CONTENT */
+body {
+  margin: 0 15px; }
+
+.wrapper {
+  max-width: 738px;
+  margin: auto; }
+
+.main-img-wrapper img {
+  display: none;
+  max-width: 735px; }
+
+section {
+  font-family: Helvetica, sans-serif;
+  color: #9C9C9A; }
+
+h2 {
+  font-weight: 300;
+  font-size: 2em; }
+
+/* MEDIA QUERY FOR DESKTOP */
+@media (min-width: 768px) {
+  /* HEADER */
+  header img {
+    float: left; }
+
+  nav {
+    float: right;
+    margin-bottom: 50px; }
+    nav ul li {
+      display: inline-block;
+      margin-left: 20px;
+      margin-top: 50px; }
+
+  /* CONTENT */
+  .main-img-wrapper img {
+    display: block;
+    margin: auto;
+    width: 100%; }
+
+  .column {
+    width: 47.5%;
+    float: left; }
+
+  .column:first-child {
+    margin-right: 5%; } }
+
+/*# sourceMappingURL=main.css.map */

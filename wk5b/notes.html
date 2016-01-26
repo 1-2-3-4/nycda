@@ -1,0 +1,143 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>jQuery Notes - Pt. 2</title>
+ 	<style>
+ .bgcolor {
+ 	background-color: pink;
+ }
+
+ #box {
+ 	width: 200px;
+ 	height: 200px;
+ 	background-color: blue;
+ }
+
+  #box2 {
+ 	width: 200px;
+ 	height: 200px;
+ 	background-color: purple;
+ 	transition: 1s all;
+ }
+
+ #box2.transformed {
+	width: 300px;
+	background-color: cyan;
+ }
+ 	</style>
+ </head>
+ <body>
+	<div id="top"></div>
+	<button id="button1">Button 1</button>
+
+	<button id="button2">Button 2 - Hover</button>
+
+	<button id="button3">Button 3 - Scroll</button>
+
+	<h3>How to Debug</h3>
+	<ol>
+		<li>Check the console!</li>
+		<li>Try the selector by itself</li>
+		<li>Add a breakpoint</li>
+	</ol>
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil autem temporibus soluta totam magni repellat eos, quibusdam tempora est rem, doloribus quod ad impedit blanditiis, corporis fuga, illo alias?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil autem temporibus soluta totam magni repellat eos, quibusdam tempora est rem, doloribus quod ad impedit blanditiis, corporis fuga, illo alias?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil autem temporibus soluta totam magni repellat eos, quibusdam tempora est rem, doloribus quod ad impedit blanditiis, corporis fuga, illo alias?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil autem temporibus soluta totam magni repellat eos, quibusdam tempora est rem, doloribus quod ad impedit blanditiis, corporis fuga, illo alias?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil autem temporibus soluta totam magni repellat eos, quibusdam tempora est rem, doloribus quod ad impedit blanditiis, corporis fuga, illo alias?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil autem temporibus soluta totam magni repellat eos, quibusdam tempora est rem, doloribus quod ad impedit blanditiis, corporis fuga, illo alias?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil autem temporibus soluta totam magni repellat eos, quibusdam tempora est rem, doloribus quod ad impedit blanditiis, corporis fuga, illo alias?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil autem temporibus soluta totam magni repellat eos, quibusdam tempora est rem, doloribus quod ad impedit blanditiis, corporis fuga, illo alias?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil autem temporibus soluta totam magni repellat eos, quibusdam tempora est rem, doloribus quod ad impedit blanditiis, corporis fuga, illo alias?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil autem temporibus soluta totam magni repellat eos, quibusdam tempora est rem, doloribus quod ad impedit blanditiis, corporis fuga, illo alias?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil autem temporibus soluta totam magni repellat eos, quibusdam tempora est rem, doloribus quod ad impedit blanditiis, corporis fuga, illo alias?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil autem temporibus soluta totam magni repellat eos, quibusdam tempora est rem, doloribus quod ad impedit blanditiis, corporis fuga, illo alias?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil autem temporibus soluta totam magni repellat eos, quibusdam tempora est rem, doloribus quod ad impedit blanditiis, corporis fuga, illo alias?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil autem temporibus soluta totam magni repellat eos, quibusdam tempora est rem, doloribus quod ad impedit blanditiis, corporis fuga, illo alias?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil autem temporibus soluta totam magni repellat eos, quibusdam tempora est rem, doloribus quod ad impedit blanditiis, corporis fuga, illo alias?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil autem temporibus soluta totam magni repellat eos, quibusdam tempora est rem, doloribus quod ad impedit blanditiis, corporis fuga, illo alias?</p>
+	<div id="stuff"></div>
+	<button id="button-top">Back To Top</button>
+
+
+	<h3>Part 2 - Notes</h3>
+
+	<p id="toggle-this-p">toggle this</p>
+	<button id="toggle-this">Toggle!</button>
+
+	<div id="box"></div>
+	<button id="box-button">Do Something to the Box</button>
+
+	<div id="box2"></div>
+	<button id="box-button2">Do Something to the Box</button>
+
+	<p class="pink">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut aliquid veritatis nisi facilis sit, laboriosam, impedit dignissimos culpa nulla expedita voluptate numquam obcaecati, maxime deleniti quod rerum tempora. Quod, illum.</p>
+
+	<ul>
+		<li>thing 1</li>
+		<li>thing 2</li>
+		<li>thing 3</li>
+		<li>thing 4</li>
+	</ul>
+
+ 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+ 	<script src="https://cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
+ 	<script>
+ 	//function without a name is called an anonymous function
+ 	// $('#button1').click(function() {
+ 	// 	alert('woo!');
+ 	// });
+
+ 	//another way to do this is to use the generic 'on' function, you pass in (name of event, function)
+ 	function sayHello(){
+ 		alert('Hello');
+ 	}
+ 	$('#button1').on('click', sayHello);
+
+	function bgColor() {
+		$('body').toggleClass('bgcolor');
+	}
+	//this function does a callback to whatever is in the ()
+	$('#button2').hover(bgColor);
+
+	function scrollToPosition(event){
+		event.preventDefault();
+		$(window).scrollTo('#stuff', 1000);
+	}
+	$('#button3').click(scrollToPosition);
+	$('#button-top').click(function scrollToTop(event){
+		event.preventDefault();
+		$(window).scrollTo('#top', 1000);
+	});
+
+	$('#toggle-this').click(function() {
+		$('#toggle-this-p').slideToggle();
+	});
+
+	$('#box-button').click(function() {
+		$('#box').animate({
+			//animate is a js object quotes aren't necessary but help with special characters. comma separated
+			'width': '300px',
+			'height': '500px'
+		}, 3000);
+	});
+
+	$('#box-button2').click(function() {
+		$('#box2').toggleClass('transformed');
+	});
+//example document ready code
+	$(document).ready(function() {
+		$('.pink').css('color','pink');
+	});
+
+	//example of iterating over an array of elements (loop sort of)
+
+	$('li').each(function() {
+		console.log($(this).html());
+	});
+
+ 	</script>
+ </body>
+ </html>

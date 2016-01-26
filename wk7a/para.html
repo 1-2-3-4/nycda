@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Parallax</title>
+	<link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+	<style>
+	body {
+		margin: 0;
+		padding: 0;
+		background-color: #ececec;
+	}
+section:nth-child(1) {
+	 background-image: url(http://markdalgleish.com/projects/stellar.js/demos/images/summer.jpg);
+}
+section:nth-child(2) {
+	background-image: url(http://markdalgleish.com/projects/stellar.js/demos/images/winter.jpg);
+}
+section:nth-child(3) {
+	background-image: url(http://markdalgleish.com/projects/stellar.js/demos/images/spring.jpg);
+}
+section:nth-child(4) {
+	background-image: url(http://markdalgleish.com/projects/stellar.js/demos/images/summer.jpg);
+}
+section:nth-child(5) {
+	background-image: url(http://markdalgleish.com/projects/stellar.js/demos/images/winter.jpg);
+}
+section {
+	/* this is all you need to get an initial parallax effect, but need the js library to get the full page effect */
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	height: 600px;
+	padding: 20px;
+}
+h1 {
+	margin: 0;
+	padding: 50px;
+	background-color: rgba(0,0,0,0.9);
+	width: 25%;
+	color: #ececec;
+}
+#rocket {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100px;
+	z-index: 0;
+}
+	</style>
+</head>
+<body>
+	
+	<section data-stellar-background-ratio="0.5">
+		<h1>section 1</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam laboriosam dolor sapiente consequuntur esse dignissimos. Aperiam amet consectetur hic porro, fuga minima laborum quis laboriosam! Libero, quis recusandae molestias nam.</p>
+	</section>
+	<section data-stellar-background-ratio="0.5">
+		<h1>section 2</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam laboriosam dolor sapiente consequuntur esse dignissimos. Aperiam amet consectetur hic porro, fuga minima laborum quis laboriosam! Libero, quis recusandae molestias nam.</p>
+	</section>
+	<section data-stellar-background-ratio="0.5">
+		<h1>section 3</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam laboriosam dolor sapiente consequuntur esse dignissimos. Aperiam amet consectetur hic porro, fuga minima laborum quis laboriosam! Libero, quis recusandae molestias nam.</p>
+	</section>
+	<section data-stellar-background-ratio="0.5">
+		<h1>section 4</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam laboriosam dolor sapiente consequuntur esse dignissimos. Aperiam amet consectetur hic porro, fuga minima laborum quis laboriosam! Libero, quis recusandae molestias nam.</p>
+	</section>
+	<section data-stellar-background-ratio="0.5">
+		<h1>section 5</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam laboriosam dolor sapiente consequuntur esse dignissimos. Aperiam amet consectetur hic porro, fuga minima laborum quis laboriosam! Libero, quis recusandae molestias nam.</p>
+	</section>
+
+	<img id="rocket" src="http://www.clipartlord.com/wp-content/uploads/2014/07/rocketship14.png" data-stellar-ratio="4">
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="stellar.js"></script>
+	<script>
+	$(document).ready(function() {
+		$.stellar();
+	});
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Notes</title>
+</head>
+<style>
+#carousel {
+	width: 50%;
+	height: 300px;
+}
+</style>
+<body>
+
+<img id="carousel" href="http://theheightsanimalhospital.com/clients/15389/images/playful-kitten-6683.jpg">
+<button id="prev">Prev</button>
+<button id="next">Next</button>
+	<!-- guessing game script -->
+	<!-- <script src="guessing.js"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script>
+// Part 4: Create Image Carousel
+// not recommended 
+var images = ['http://theheightsanimalhospital.com/clients/15389/images/playful-kitten-6683.jpg', 'http://dreamatico.com/data_images/kitten/kitten-1.jpg', 'http://i.telegraph.co.uk/multimedia/archive/02830/cat_2830677b.jpg'];
+
+var i = 0;
+setInterval(function() { 
+	$('#carousel').attr('src', images[i]);
+		i++;
+		if (i >= images.length) {
+			i = 0;
+		}
+}, 1000);
+
+console.log('I set up an interval');
+
+function showPrevImage() {
+	i--;
+	$('#carousel').attr('src', images[i]);
+	if (i < 0) {
+		i = images.length - 1;
+	}
+}
+$('#prev').click(showPrevImage);
+
+function showNextImage() {
+	i++;
+	$('#carousel').attr('src', images[i]);
+	if (i > images.length) {
+		i = 0;
+	}
+}
+$('#next').click(showNextImage);
+	</script>
+	<script>
+// Part 3: Arrays
+var favoriteColors = ['red', 'orange', 'yellow'];
+
+var myName = 'Nicole';
+// can put anything inside of an array, including strings, integers, functions, variables, boolean
+var favoriteThings = ['pink', 42, true, myName];
+
+favoriteThings[0]; //get value from arrow, gets 'pink'
+favoriteColors[1]; //orange
+
+// to get last item of array, length - 1
+
+favoriteThings[favoriteThings.length - 1]; // gets 'Nicole'
+
+// can replace items by using = to set values
+favoriteThings[1] = 50;
+favoriteThings[1];
+
+//sticking something on the end of the array = push
+favoriteThings.push('kittens');
+favoriteColors.push('green');
+
+favoriteThings;
+favoriteColors;
+
+// make a loop that prints all the favorite colors
+
+for (i = 0; i < favoriteColors.length; i++) {
+	console.log(favoriteColors[i]);
+}
+
+// excercise: 
+// Create an array to hold your top choices (colors, presidents, whatever).
+// For each choice, log to the screen a string like: "My #1 choice is blue."
+// Bonus: Change it to log "My 1st choice, "My 2nd choice", "My 3rd choice", picking the right suffix for the number based on what it is.
+
+var favoriteFoods = ['Japanese Curry', 'Banh Mi', 'Burritos', 'Fried Chicken', 'Guacamole', 'Pizza', 'Tater Tots', 'Mac N\' Cheese'];
+
+for (i = 0; i < favoriteFoods.length; i++) {
+	console.log('My #' + (i + 1) + ' choice is ' + favoriteFoods[i]);
+}
+
+// bonus: 
+
+var grammar = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th']
+
+for (i = 0; i < favoriteFoods.length; i++) {
+	console.log('My ' + grammar[i] + ' choice is ' + favoriteFoods[i]);
+}
+	</script>
+	<script>
+// Part 1: examples from class!
+
+// Write a for loop that will iterate from 0 to 20. For each iteration, it will check if the current number is even or odd, and report that to the screen (e.g. "2 is even").
+
+for (i = 0; i <= 20; i++) {
+	if (i % 2 === 0) {
+		console.log(i + ' is even');
+	}
+	else {
+		console.log(i + ' is odd');
+	}
+}
+
+// Write a for loop that will iterate from 0 to 10. For each iteration of the for loop, it will multiply the number by 9 and log the result (e.g. "2 * 9 = 18").
+
+// Bonus: Use a nested for loop to show the tables for every multiplier from 1 to 10 (100 results total).
+
+for (i = 0; i <= 10; i++) {
+	console.log(i + ' * 9 = ' + i * 9);
+}
+
+//bonus 
+for (i = 0; i <= 10; i++) {
+	for (a = 1; a <= 10; a++) {
+		console.log(i + ' * ' + a + ' = ' + i*a);
+	}
+}
+
+// Check the results of assignGrade function from the conditionals exercise for every value from 60 to 100 - so your log should show "For 89, you got a B. For 90, you got an A.", etc.
+
+//my answer:
+for (i = 100; i >= 60; i--) {
+	if (i >= 90) {
+		console.log('For ' + i + ', you got an A');
+	}
+	if (i >= 80 && i < 90) {
+		console.log('For ' + i + ', you got a B');
+	}
+	if (i >= 70 && i < 80) {
+		console.log('For ' + i + ', you got a C');
+	}
+	if (i >= 60 && i < 70) {
+		console.log('For ' + i + ', you got a D');
+	}
+}
+
+//in class:
+function assignGrade(score) {
+    if (score > 90) {
+        return 'A';
+    } else if (score > 80) {
+        return 'B';
+    } else if (score > 70) {
+        return 'C';
+    } else if (score > 65) {
+        return 'D';
+    } else {
+        return 'F';
+    }
+}
+
+for (i = 60; i <= 100; i++) {
+	var grade = assignGrade(i);
+	if(grade === 'A' || grade === 'F') {
+		console.log('For ' + i + ', you got an ' + grade);
+
+	}
+	else {
+		console.log('For ' + i + ', you got a ' + grade);
+	}
+}
+
+	</script>
+</body>
+</html>

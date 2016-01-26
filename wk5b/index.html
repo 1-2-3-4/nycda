@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style type="text/css">
+        .hidden {
+            display: none;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+        }
+
+        #box1 {
+            background: blue;
+        }
+
+        #box2 {
+            background: green;
+        }
+
+        img {
+            display: block;
+        }
+        .yellow {
+            background-color: yellow !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery Practice</h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <img src="http://cdn.sheknows.com/articles/2013/04/Puppy_2.jpg">
+
+    <button id="button1">Alert Hello World</button>
+    <button id="button2">Show hidden text</button>
+
+    <p class="hidden">This text is hidden This text is hidden This text is hidden This text is hidden This text is hidden This text is hidden This text is hidden This text is hidden This text is hidden This text is hidden This text is hidden This text is hidden This text is hidden This text is hidden This text is hidden This text is hidden This text is hidden This text is hidden This text is hidden This text is hidden </p>
+
+    <div id="box1" class="box"></div>
+    <div id="box2" class="box"></div>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+    /// Exercise 1
+
+    /// Make all paragraphs on the page blue
+
+    $('p').css('color', 'blue');
+
+//////////////////
+
+    /// Exercise 2
+
+    /// Give the puppy image a 1px dashed red border
+
+    $('img').css('border', 'dashed 1px red')
+
+//////////////////
+
+    /// Exercise 3
+
+    /// Make the background color of the page green
+
+    // No starter code - you can do it!
+
+    $('html').css('background-color','green');
+
+//////////////////
+
+
+    /// Exercise 4
+
+    /// Make button1 alert 'Hello World'
+
+    function helloWorld()
+    {
+        alert('hello wold');
+    }
+
+    $('#button1').click(helloWorld);
+
+
+
+//////////////////
+
+    /// Exercise 5
+
+    /// Make button2 show the hidden text
+
+    function showHiddenText()
+    {
+        $('.hidden').show();
+    }
+
+    $('#button2').click(showHiddenText);
+
+//////////////////
+
+    // Exercise 6
+
+    /// Make the blue box turn red when you click on it
+
+    // ADD A FUNCTION HERE
+
+    function makeRed() {
+        $(this).css('background-color', 'red');
+    }
+
+    $('#box1').click(makeRed);
+
+/////////////////
+
+    // Exercise 7
+
+    /// Make the green box turn yellow when you hover over it
+
+    // No starter code - you can do it!
+
+    function hoverYellow() {
+        $(this).toggleClass('yellow');
+    }
+
+    $('#box2').hover(hoverYellow);
+
+    </script>
+</body>
+</html>

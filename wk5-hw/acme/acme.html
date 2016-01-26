@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="UTF-8">
+	  <title>Acme Corporation</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	
+	<body>
+		<div class="container">
+			<img src="acme-logo.png" alt="Acme Corporation">
+			<nav>
+				<ul>
+					<li><a href="acme.html">HOME</a></li>
+					<li><a href="acme.html">ABOUT US</a></li>
+					<li><a href="acme.html">CONTACT</a></li>
+				</ul>
+			</nav>
+			<main>
+				<img src="anvil.png" id="anvil">
+				<section>
+					<h1>why acme?</h1>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					</p>
+				</section>
+
+				<section>
+					<h1>anvils are not working</h1>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					</p>
+				</section>
+			</main>
+		</div>
+	</body>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script>
+
+	//use jQuery selectors to find the following
+	//The navigation links (you should get an array of links)
+	$('nav');
+	//The headers "why acme?" and "anvils are not working"
+	$('h1');
+	//the big picture of an anvil
+	$('#anvil');
+
+	//Use the .html() method to change the text "HOME" in the nav bar to "Google" (you may need to add a class or an id to reference it - alternatively, look at http://api.jquery.com/eq/ (Links to an external site.) to see how you can get just the first item from a jQuery array)
+
+	$('nav li a').eq(0).html('Google').attr('href', 'http://www.google.com');
+
+
+	</script>
+	
+</html>

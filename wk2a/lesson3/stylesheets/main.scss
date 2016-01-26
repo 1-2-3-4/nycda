@@ -1,0 +1,27 @@
+// import _buttons.scss
+// don't need to include the _ for partial or .scss extension
+@import 'fonts';
+@import 'buttons';
+
+// _buttons.scss will get pulled in on the above line replacing that command
+
+// mixins are a functino that you write to make cross-browser compatability easier
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	   -moz-border-radius: $radius;
+	    -ms-border-radius: $radius;
+	     -o-border-radius: $radius;
+	        border-radius: $radius;
+}
+.box { @include border-radius(10px); }
+
+.button { @include border-radius(3px); }
+
+// variables are used across partials, they just have to be called after they are declared
+
+// things like colors and fonts can be put in partials at the top of the file so they are caught in the rest of the partials
+
+h1 {
+	font-family: 'bebas_neuebold';
+}

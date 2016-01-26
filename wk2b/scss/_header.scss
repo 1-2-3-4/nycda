@@ -1,0 +1,23 @@
+/* STYLING FOR HEADER */
+
+nav {
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			list-style-type: none;
+			a {
+				text-decoration: none;
+				color: #9C9C9A;
+				text-transform: uppercase;
+				font-family: Helvetica, sans-serif;
+				font-weight: 600;
+				font-size: 1.5em;
+				line-height: 1.2em;
+			}
+			a:hover {
+				color: red;
+			}
+		}
+	}
+}

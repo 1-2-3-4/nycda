@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Javascript Functions</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css"> 
+	<link rel="stylesheet" href="css/main.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<h1>Javascript Functions</h1>
+	<h2>1. Square Numbers</h2>
+	<p>
+		<span class="question-text">The result of squaring </span>
+		<input type="text" class="num-input" id="square-num">
+		<span class="question-text"> is </span>
+		<span class="result" id="square-result">&nbsp;</span>
+		<button type="submit" onclick="squareNumberHTML();">Calculate</button>
+	</p>
+	<h2>2. Halve a Number</h2>
+	<p>
+		<span class="question-text">Half of </span>
+		<input type="text" id="half-num" class="num-input">
+		<span class="question-text"> is </span>
+		<span class="result" id="half-result">&nbsp;</span>
+		<button type="submit" onclick="halfNumberHTML();">Calculate</button>
+	</p>
+	<h2>3. Percentages</h2>
+	<p>
+		<input type="text" id="percent-num1" class="num-input">
+		<span class="question-text"> / </span>
+		<input type="text" id="percent-num2" class="num-input">
+		<span class="question-text"> = </span>
+		<span class="result" id="percent-result">&nbsp;</span>
+		<span class="question-text"> % </span>
+		<button stype="submit" onclick="percentOfHTML();">Calculate</button>
+	</p>
+	<h2>4. Area of a Circle</h2>
+	<p>
+		<span class="question-text">The area for a circle with radius </span>
+		<input type="text" class="num-input" id="radius">
+		<span class="question-text"> is </span>
+		<span class="result" id="area-result">&nbsp;</span>
+		<span class="question-text">units<sup>2</sup></span>
+		<button type="submit" onclick="areaOfCircleHTML();">Calculate</button>
+	</p>
+	<h2>5. Multiple Functions</h2>
+	<p>
+		<span class="question-text">Perform all of the above functions by supplying an initial sum </span>
+		<input type="text" class="num-input" id="multi-num">
+		<button type="submit" onclick="multiOperationsHTML();">Calculate</button>
+	</p> 
+	<p>
+		<span class="question-text">Half of </span>
+		<span class="result" id="multi-num-orig">&nbsp;</span>
+		<span class="question-text"> is </span>
+		<span class="result" id="multi-result1">&nbsp;</span>
+	</p>
+	<p>
+		<span class="question-text">The result of </span>
+		<span class="result" id="multi-result1a">&nbsp;</span>
+		<span class="question-text"> squared is </span>
+		<span class="result" id="multi-result2">&nbsp;</span>
+	</p>
+	<p>
+		<span class="question-text">The area of a circle with radius </span>
+		<span class="result" id="multi-result2a">&nbsp;</span>
+		<span class="question-text"> is </span>
+		<span class="result" id="multi-result3">&nbsp;</span>
+	</p>
+	<p>
+		<span class="result" id="multi-result3a">&nbsp;</span>
+		<span class="question-text"> / </span>
+		<span class="result" id="multi-result2b">&nbsp;</span>
+		<span class="question-text"> = </span>
+		<span class="result" id="multi-result4">&nbsp;</span>
+		<span class="question-text"> %</span>
+	</p>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

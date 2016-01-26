@@ -1,0 +1,33 @@
+$fieldBorder: solid 2px pink;
+
+.num-input {
+	width: 50px;
+	appearance: none;
+	-webkit-appearance: none;
+	border: $fieldBorder;
+	text-align: center;
+	text-indent: 0;
+}
+
+.result {
+	border-bottom: $fieldBorder;
+	text-align: center;
+	min-width: 50px;
+	display: inline-block;
+}
+
+button {
+	-webkit-appearance: none;
+	appearance: none;
+	border: 0;
+	border: solid 2px #B8D462;
+	padding: 2px 10px;
+	border-radius: 20px;
+	background-color: #fff;
+	color: #788C39;
+}
+
+button:hover {
+	background-color: #B8D462;
+	color: #fff;
+}

@@ -1,0 +1,28 @@
+/* MEDIA QUERY FOR DESKTOP */
+@media (min-width: 768px) {
+  /* HEADER */
+  header img {
+    float: left; }
+
+  nav {
+    float: right;
+    margin-bottom: 50px; }
+    nav ul li {
+      display: inline-block;
+      margin-left: 20px;
+      margin-top: 50px; }
+
+  /* CONTENT */
+  .main-img-wrapper img {
+    display: block;
+    margin: auto;
+    width: 100%; }
+
+  .column {
+    width: 47.5%;
+    float: left; }
+
+  .column:first-child {
+    margin-right: 5%; } }
+
+/*# sourceMappingURL=mediaq-768.css.map */

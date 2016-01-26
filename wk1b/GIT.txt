@@ -1,0 +1,125 @@
+TERMINAL NOTES
+
+$ pwd = print working directory 
+
+* don't type in sudo rm -rf, will do harmful things to your computer
+
+$ ls = list directory contents
+
+$ ls -al = displays all files w/ more info, including hidden files
+
+$ ls -G = color codes by file and directory type
+
+$ open . = opens the file location in Finder
+
+$ open index.html = opens in browser
+
+$ subl . = open file in sublime
+
+~ is the shortcut for home directory
+
+$ touch = create a complete blank file in a  directory for you
+
+$ cp [filename] [rename filename] = copy file
+
+$ rm = remove command
+
+$ rm -r my_folder = -r means recursive, it will delete everything underneath it, including that folder
+
+$ rm -rm rf = remove folder
+
+$ mkdir [directory_name] = make directory
+
+$ man = man pages
+
+$ man [command] = BSD General Commands Manual ex) man rm
+				  to search a man page use /[enter search term here]
+				  \ will escape (ignore) a character
+				  n will go to the next found search item
+				  N will go to the prev found search item
+				  q will exit the man page
+
+$ vim [filename] = opens it in terminal window
+	esc :w = write file
+	esc :q = quit file
+	esc :q! = quit w/o saving
+	esc :i = insert mode , can edit the file
+	esc :wq filename.txt = save and quit with filename
+
+$ less [filename] = preview of file in terminal window
+	q = quit
+
+$ cat [filename] = read-only; print file quickly, or concatenate two files in terminal window
+
+$ mv [filename] [destination or filename-new] = technically move file, but can use to rename
+
+$ history = shows you your history for the session
+
+$ apropos [thing] = indexes/searches? 
+
+$ man bash = learn more about bash scripting
+
+$ sudo = super user do (generally bad to copy from the internet; try running it without sudo will do it, try with lower computer privileges first)
+
+ctrl+c = quit out of whatever action is happening
+
+$ ps aux = shows you the existing processes, can quit something using it's process number
+
+$ kill [process number] = process # is second column next to user 
+
+$ ps aux | grep [process name] = can find process number for problem 
+
+$ clear = clears your screen (withou)
+
+
+GIT NOTES - version control framework/program
+
+1. How to save your work
+
+2. Work on the same files with different changes/users
+
+3. Fix typos when doing things with GIT
+
+
+$ git init = start a new repo
+
+$ git status = check git status
+	staged = ready to be committed
+	unstaged = default stage
+	committed = 
+
+$ git add [filename] [filename] [etc] = add files to repo 
+
+$ git add . = adds all files to repo
+
+$ git commit = save
+	-m = option to put a message -m 'blah blah blah blah'
+
+$ git diff [filename] = shows you the changes that have been made to a filename
+
+$ git branch = check which branch you're currently on
+	branch = two separate and distinct versions of the code
+
+	master (contains apples and pears) -> branch 1: kiwis, apples, pears; branch 2: starfruit, apples, pears
+
+$ git merge = get two distinct branches to merge back together
+
+$ git checkout -b [branch name] = create a new branch, then you can double check with $ git branch
+
+$ git checkout [branch name] = switch to branch
+
+* note to self - look up github remote (how to add remote), look up pushing files
+- code school learn git
+- code academy has git also
+
+$ git merge [branch name to be added to current branch] = merge two branches
+
+* resolving a merge conflict goes through same process, needs to be added, then committed
+
+$ git commit --amend -m 'message here' = edit the message of the last commit
+
+$ git push -u origin master = origin is the remote (other servers where git is hosted) 
+
+$ git remote = shows you what your remote is 
+
+* Git re-basing = 

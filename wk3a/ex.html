@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS Exercises</title>
+</head>
+<body>
+	<p>JS Number Guessing</p>
+	<!-- <p>Write a JavaScript program where the program takes a random integer between 1 to 10, the user is then prompted to input a guess number. If the user input matches with guess number, the program will display a message "Good Work" otherwise display a message "Not matched".</p> -->
+	<p>Make a guess:</p>
+	<form name="guessNum" onsubmit="return checkNum();">
+		<input id="guess">
+		<button type="submit">submit</button>
+	</form>
+	<p>Caluclator</p>
+	<form name="calculator">
+		<label for="firstNum">First Number:</label>
+		<input id="firstNum">
+		<label for="secondNum">Second Number:</label>
+		<input id="secondNum">
+		<button type="submit" id="multiply" onclick="return multiplyNum();">Multiply</button>
+		<button type="submit" id="divide" onclick="return divideNum();">Divide</button>
+	</form>
+	<script>
+//for the first exercise
+
+//get a random num
+var randomNum = Math.floor((Math.random() * 10) + 1);
+//check if random num matches guess num
+function checkNum() {
+	if (randomNum == document.forms["guessNum"]["guess"].value) {
+		alert('good job! you got it right!');
+	}
+	else {
+		alert('try again! the number was ' + randomNum);
+	}
+}
+	</script>
+	<script>
+//for the second exercise 
+function multiplyNum() {
+	var answer = document.forms["calculator"]["firstNum"].value * document.forms["calculator"]["secondNum"].value;
+	alert(answer);
+}
+function divideNum() {
+	var answer = document.forms["calculator"]["firstNum"].value / document.forms["calculator"]["secondNum"].value;
+	alert(answer);
+}
+	</script>
+</body>
+</html>

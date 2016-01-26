@@ -1,0 +1,42 @@
+/* put this in your ~ .gitconfig */
+
+[core]
+        editor = /usr/bin/vim
+        excludesfile = /Users/nicole.kuprienko/.gitexcludes
+[user]
+        email = nicole.kuprienko@gmail.com
+        name = Nicole Kuprienko
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+    interactive = auto
+    ui = true
+    pager = true
+[color "branch"]
+    current = yellow reverse
+    local = yellow bold
+    remote = green bold
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red reverse
+    new = green reverse
+[color "status"]
+    added = yellow bold
+    changed = green bold
+    untracked = cyan bold
+[alias]
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    st = status
+
+/* put this in your ~ .profile */
+
+force_color_prompt=yes
+source ~/.git-prompt.sh 
+GIT_PS1_SHOWDIRTYSTATE=true
+export PS1='\[\033[1;38;5;114m\]\u \[\033[1;38;5;116m\]\w\[\033[1;38;5;204m\]$(__git_ps1)\[\033[0m\] $ '
+
+/* may need to customize user name etc */
+
+/* may need to d/l git-prompt.sh depending on how git was installed */

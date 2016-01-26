@@ -1,0 +1,33 @@
+$myFaveColor: pink;
+
+/* Bootstrap breakpoints: 480, 768, 992, 1200 */
+
+html {
+	background-color: $myFaveColor;
+	transition: all 2s;
+}
+
+@media (min-width: 400px) {
+	html {
+		background-color: green;
+	}
+}
+
+@media (min-width: 600px) {
+	html {
+		background-color: blue;
+	}
+}
+
+
+@media (min-width: 800px) {
+	html {
+		background-color: purple;
+	}
+}
+
+@media (min-width: 1000px) {
+	html {
+		background-color: brown;
+	}
+}

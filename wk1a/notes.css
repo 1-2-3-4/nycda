@@ -1,0 +1,86 @@
+/* WEEK ONE STYLING - SELECTORS */
+
+body {
+	font-family: "Open-Sans", sans-serif;
+	color: #717171;
+}
+
+nav {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+section {
+	padding: 0 10%;
+}
+
+p {
+	line-height: 1.7em;
+}
+
+h1 {
+	text-shadow: 1px 1px #27D4AF;
+}
+
+/* remove some default styling */
+
+.logo {
+	height: 40px;
+	width: 80px;
+	background-color: #27D4AF;
+	border: solid 4px #717171;
+	margin: 20px auto 50px auto;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav ul li a:hover {
+	background-color: #F1F1F1;
+}
+
+li a {
+	text-decoration: none;
+	color: #27D4AF;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	display: block;
+	padding: 10px 20px;
+}
+
+/* targets the main nav only, and not the sub-nav */
+nav > ul > li {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 10px;
+	background-color: #f9f9f9;
+}
+
+.has-sub-nav {
+	position: relative;
+}
+
+nav ul ul {
+	display: none;
+	background-color: #F9F9F9;
+	position: absolute;
+	width: 300%;
+	text-align: left;
+}
+
+nav ul ul li a {
+	text-transform: none;
+	color: #B935CE;
+	font-size: .9em;
+}
+
+nav ul ul li a:hover {
+	background-color: #ddd;
+}
+
+nav ul li:hover ul {
+	display: block;
+}

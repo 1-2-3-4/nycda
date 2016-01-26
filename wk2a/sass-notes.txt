@@ -1,0 +1,65 @@
+/*SASS - Syntastically Awesome Style Sheets
+
+* sassmeister is the jsfiddle/codepen for sass
+* automatically compiles into normal CSS - no need to write normal CSS anymore
+* .scss files
+* be consisten with Camel Case etc 
+* variables = can store any CSS value and pass it in throughout the file (anything after the :)
+* can do +, -, /, * with numeric values (have to have px, em, %, etc regular rules apply)
+* nesting example below - can nest styling
+
+*/
+
+nav {
+	border: solid 2px;
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			list-style-type:none;
+		}
+	}
+	a {
+		text-decoration: none;
+	}
+}
+
+/*
+
+ * sass --watch path/sass-directory:path/css-directory
+
+ * sass will generate files in a specific directory
+
+ * anytime you need to work on a sass file, you need to sass --watch it
+
+ * koala - you drop your folder in and it will watch/update css as you work on your sass files. once you open a project in koala it will continue to watch it, unless you remove the project from the list
+
+ * install package control for sublime text https://packagecontrol.io/installation#st2
+
+ * download SASS, SASS BUILD, and Emmet
+
+ * in order to get Sublime Text 2 to build your files, you go to Tools > Build or cmd+B
+
+ * ln -s where your sass lives if it can't find where you installed sass
+
+###### PARTIALS
+
+ * can break up and organize your files across multiple files
+
+ * if you have sass watch or koala running, it will cause errors if you try to save a SaSS file that has incorrect syntax. make sure to check work before saving
+
+  -> koala should be watching your full project folder
+  -> sass --watch should be watching your stylesheets folder
+
+  * compiling Sass into a new folder
+	* sass --watch stylesheets:css
+	* sass --watch [the folder your scss is in]:[the folder your css is in]
+
+ #### FONTS TANGENT
+
+  * font squirrel generator can generate altenerate font file formats for fonts (help with support across browser/platforms) 
+
+  
+*/
+
+

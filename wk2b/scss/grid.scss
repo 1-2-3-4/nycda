@@ -1,0 +1,53 @@
+h1 {
+	text-align: center;
+}
+
+.row {
+	// border: solid 2px cyan;
+	background-color: beige;
+	display: inline-flex;
+}
+
+// .row div {
+// 	display: flex;
+// }
+
+.row div:first-child {
+	background-color: pink;
+	// border: solid 2px grey;
+}
+
+.row div:nth-child(2) {
+	background-color: purple;
+}
+
+.row div:nth-child(3) {
+	background-color: brown;
+}
+.row div:nth-child(4) {
+	background-color: green;
+}
+.row div:nth-child(5) {
+	background-color: aquamarine;
+} 
+.row div:nth-child(6) {
+	background-color: chocolate;
+}
+.row div:nth-child(7) {
+	background-color: grey;
+}
+.row div:nth-child(8) {
+	background-color: darkcyan;
+}
+.row div:nth-child(9) {
+	background-color: darksalmon;
+}
+.row div:nth-child(10) {
+	background-color: darkslateblue;
+}
+.row div:nth-child(11) {
+	background-color: goldenrod;
+}
+.row div:nth-child(12) {
+	background-color: khaki;
+}

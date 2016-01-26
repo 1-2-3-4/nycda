@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>One Page Website</title>
+	<link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+	<style>
+body{
+	max-width: 650px;
+	color: #343434;
+	margin: 0 auto;
+	margin-top: 150px;
+}
+p {
+	font-family: Arial;
+	line-height: 1.7em;
+}
+h1 {
+	font-family: Arial;
+	text-align: center;
+}
+h2 {
+	font-family: Arial;
+	color: #2C41B3;
+}
+section {
+	padding: 50px 0;
+}
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.3);
+	width: 100%;
+}
+ul {
+	margin: 0;
+	list-style-type: none;
+	padding: 0;
+}
+li {
+	display: inline-block;
+	padding: 25px 20px;
+}
+a {
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: Helvetica;
+	letter-spacing: 1px;
+	color: #2C41B3;
+}
+	</style>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="#home">Home</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#resume">Resum&eacute;</a></li>
+			<li><a href="#projects">Projects</a></li>
+		</ul>
+	</nav>
+	<h1>Website Name</h1>
+	<section id="home">
+		<h2>Home</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis necessitatibus esse quo laboriosam repellendus facere saepe, repudiandae mollitia adipisci debitis eum nostrum consequatur id pariatur non blanditiis, assumenda distinctio. Expedita.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis necessitatibus esse quo laboriosam repellendus facere saepe, repudiandae mollitia adipisci debitis eum nostrum consequatur id pariatur non blanditiis, assumenda distinctio. Expedita.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis necessitatibus esse quo laboriosam repellendus facere saepe, repudiandae mollitia adipisci debitis eum nostrum consequatur id pariatur non blanditiis, assumenda distinctio. Expedita.</p>
+		<a class="next" href="#">Next Section</a>
+	</section>
+	<section id="about">
+		<h2>About</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis necessitatibus esse quo laboriosam repellendus facere saepe, repudiandae mollitia adipisci debitis eum nostrum consequatur id pariatur non blanditiis, assumenda distinctio. Expedita.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis necessitatibus esse quo laboriosam repellendus facere saepe, repudiandae mollitia adipisci debitis eum nostrum consequatur id pariatur non blanditiis, assumenda distinctio. Expedita.</p>
+		<a class="jump" href="#">Jump 300px down</a>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis necessitatibus esse quo laboriosam repellendus facere saepe, repudiandae mollitia adipisci debitis eum nostrum consequatur id pariatur non blanditiis, assumenda distinctio. Expedita.</p>
+		<a href="#" class="prev">Previous Section</a>
+	</section>
+	<section id="resume">
+		<h2>Resum&eacute;</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis necessitatibus esse quo laboriosam repellendus facere saepe, repudiandae mollitia adipisci debitis eum nostrum consequatur id pariatur non blanditiis, assumenda distinctio. Expedita.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis necessitatibus esse quo laboriosam repellendus facere saepe, repudiandae mollitia adipisci debitis eum nostrum consequatur id pariatur non blanditiis, assumenda distinctio. Expedita.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis necessitatibus esse quo laboriosam repellendus facere saepe, repudiandae mollitia adipisci debitis eum nostrum consequatur id pariatur non blanditiis, assumenda distinctio. Expedita.</p>
+		<a class="next" href="#">Next Section</a>
+	</section>
+	<section id="projects">
+		<h2>Projects</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis necessitatibus esse quo laboriosam repellendus facere saepe, repudiandae mollitia adipisci debitis eum nostrum consequatur id pariatur non blanditiis, assumenda distinctio. Expedita.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis necessitatibus esse quo laboriosam repellendus facere saepe, repudiandae mollitia adipisci debitis eum nostrum consequatur id pariatur non blanditiis, assumenda distinctio. Expedita.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis necessitatibus esse quo laboriosam repellendus facere saepe, repudiandae mollitia adipisci debitis eum nostrum consequatur id pariatur non blanditiis, assumenda distinctio. Expedita.</p>
+		<a href="#" class="prev">Previous Section</a>
+	</section>
+	<section>
+		<h2>Relative Step</h2>
+		<a class="jump" href="#">Jump 300px down</a>
+		<img src="http://www.ikea.com/PIAimages/67424_PE181267_S5.JPG" height="600"/>
+		<a class="jump" href="#">Jump 300px down</a>
+	</section>
+	<section></section>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
+	<script>
+$('nav a').click(function(e) {
+	e.preventDefault();
+	//get the href of the link
+	var href = $(this).attr('href');
+	// take 1s to scroll to that href
+	$(window).scrollTo(href, 1000, {
+		offset: -50
+	});
+});
+	
+$('.jump').click(function(e) {
+	e.preventDefault();
+	$(window).scrollTo('+=300px', 1000);
+});
+
+$('.next').click(function(e) {
+	e.preventDefault();
+	var nextSection = $(this).parent('section').next('section');
+	console.log();
+	$(window).scrollTo(nextSection, 1000, {offset: -50});
+});
+
+$('.prev').click(function(e) {
+	e.preventDefault();
+	var prevSection = $(this).parent('section').prev();
+	$(window).scrollTo(prevSection, 1000, {offset: -50});
+});
+
+	</script>
+	<script>
+// js objects detour
+
+// list of keys and values
+var objectExample = {
+	instructor: 'Nicole',
+	numStudents: 20,
+	today: true,
+	topics: ['js', 'css', 'html']
+};
+
+	</script>
+</body>
+</html>

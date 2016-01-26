@@ -1,0 +1,160 @@
+Git Tutorial Notes
+
+How Git works
+ex flow)
+A -> A1 -> A2
+B -> B1 -> B2
+C -> C1 -> C2
+
+* stores complete files rather than changes to file 
+	ex) in sub-version, you are only storing changes to the files
+	Git is storing the full files, so you can pull B1 completely at any time
+
+git-scm.com -> click on documentation, resource book available
+
+* track all changes to all files in a directory over time
+
+* in the folder you want to track, a tracking directory called '.git/' will record all changes to those files
+
+* different from git-hub which is storage
+
+* repository is a folder with the .git folder in it
+
+* saving files - saves to disk
+
+* unstaged change - change is made to a file locally (saved to disk)
+
+* staging area - changes in the staging area will be saved to the commit
+
+* commit - change between two file states (changes between A and A1)
+
+* after you do git status -> 'changes to be committed' are the files that have been modified, and will be added to the commit
+
+* if you have a file with passwords or anything, you don't want those changes to be tracked and viewed by everyone. can add to a git ignore file later on?
+
+* git config --global core.editor /usr/bun/vim = sets editor to VIM
+
+* git config --global user.name "Name"
+
+* git config --global user.email nicole.kuprienko@gmail.com
+
+* git subject line - best practices should be no more than 50 characters, should start with present tense verb no punctuation
+	ex) not 'made changes' but 'make changes'
+	ex) Add new index.html page
+	include line break with one line blank
+	then have a paragraph of information about the commit (72 char long)
+
+* by conforming to char rules, the git log will show you a comprehensive list of changes
+
+* git log = full list (for current branch) in descending order of all changes that have been made 
+
+* SHA = git looks at the working directory that you're about to commit and pops out a number, allows GIT to use there as address. You can use the first 7 characters of the SHA to uniquely identify a commit if you need to message anyone
+
+* Typically have one master branch with multiple dev branches where features are being made
+
+* shift+A in normal mode VIM gets you to the end of a line
+
+* can use :x as a shortcut for :wq
+
+* MERGING - typically want to be on the master branch if that's where you're merging. If you're on a feature branch, you can merge those there before merging with master
+
+* git merge branchname = merge the branches. does not delete the merging branch
+
+* git branch = shows you all the branches in the repo, puts a * next to the branch you're on. 
+
+* git is designed to show everything (including errors/issues) so you don't make the same mistakes again. if you accidentally commit secret passwords can do:
+
+$ git reset HEAD^ --hard = resetting the branch that you're on, HEAD(@2) would take you back two commits. HEAD is the last commit with the bad data. HEAD^ is the one before that 
+
+$ git revert 
+
+* when you d/l or clone a repo from online, it should already have a .git folder. can make branches using that master folder as your root
+
+* stable branch - main project branch / production; will have separate dev branch. dev branch also contains new features & bug-fixes before those end up on the stable branch. dev branch also used for testing
+
+* new features / bug fixes - separate branches off dev. once new feature has been tested, it'll be added to the dev branch. once dev branch is tested again and QA-ed, dev branch will be merged into stable
+
+* typical workflow - features branch directly off dev. Feature 1 backend (f1-be) would branch off dev, Feature 1 Frontend (f1-fe) would branch off f1-be. Those would merge together before merging back to stable/master. Typically Agile workflow, could be used in waterflow as well
+
+* staging area is the same across all branches, need to commit files in order to get them to stay exclusively on one branch
+
+$ git log --graph = visual representation of branches?
+
+$ git diff --staged = will show you changes in staging
+
+$ git reset = unstage changes
+
+$ git reset HEAD filename.txt = unstage changes for a specific file
+
+* garbage commits = should commit (equivalent to ctrl+save) often during the day to make sure changes are being saved. But don't want these little updates as part of the global repo bc they aren't meaningful. 
+	put 'sodijfosdijf' nonsense as your commit SL. then can: 
+$ git commit --ammend = you can edit the last message, if you delete the full SL it will abort the last commit
+
+$ git stash = puts your files in a temporary area, but will stay with you across branches
+
+* if you make an accidental commit, do :q! in the VIM window and the commit will be aborted due to empty subject line
+
+* re-base = change the point at which git believes is the base of the code
+	will have to fix conflicts as you are basing along
+	it will look like the commits made in the outside branch were made in the dev branch all along
+	difficult to figure out where a bug came from, and multiple branches can make that complicated. not having to deduce where/how merge conflicts come into play make that process simpler
+
+* after you merge in a branch to master, you can delte that branch
+$ git 
+
+MERGE CONFLICTS
+* do a git status to see what's happening and where the conflicts are
+* can open the file in VIM and it'll show you where the conflicts are, you can make updates there
+* can search a VIM file in normal mode using / 
+	ex) search for title is /title
+
+REBASE 
+$ git rebase = normal mode
+$ git rebase -i branchname = -i is interactive mode
+	- squash: you can combine all your prog garbage commits into one commit
+* if you have any issues to resolve, you can resolve those
+* add files again to include the changes
+* git rebase --continue = continue rebase process after resolving conflicts
+* then checkout master and merge those branches 
+$ git rebase --abort = abort rebase process 
+
+* HEAD = current branch that you're on
+
+* origin = repo that you cloned from (should ask for a password)
+
+$ git push origin branchname/HEAD = push your branch to the origin. HEAD is the current branch you're on, or you could use branch name
+
+* PULL REQUEST - asking permission for your code to be merged to the repo
+	SL here can be past tense, include description of what code you are adding
+
+* resolving conflicts with merging to master - pull master so you have the most recent conflict
+	* pull the branch with a conflict
+	* get a re-base together
+	* git pull origin HEAD (gets all the branches)
+	* checkout branch with conflict
+	* git rebase master
+	* git status shows you where the problem is
+	* git diff will show you where the problems are as well
+	* you can keep both changes by removing all the weird commenty things
+	* delete the branch in the origin, then you can push the updated branch and merge with master
+
+$ git push origin :branch-name = this will delete the branch-name in the origin repo
+
+ISSUE TRACKING 
+
+* can create issues in GitHub 
+* create a new branch with issue name to show you are fixing a certain bug
+* name: g17 - Name = github issue 17 with name
+* close issue at same time as commite/merge, use "Closes Issue#" for SL
+
+FORK REPO 
+
+* want to contribute to a project but aren't a collaborator
+* copying the working directory 
+
+PULL REQUESTS 
+* will try to merge things 
+
+$ git fetch origin = will just fetch files without merging anything 
+
+* can set up a GIT server, or can host private repos for $$$
