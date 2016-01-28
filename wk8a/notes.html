@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Wk 8 Notes</title>
+	<style>
+html {
+	font-family: Arial;
+}
+span.label {
+	color: purple;
+	font-weight: 600;
+}
+	</style>
+</head>
+<body>
+	<h1>Weather API</h1>
+	<p>Search your city to see current weather:</p>
+	<input id="city">
+	<button id="cityLookup">Go!</button>
+
+	<p>
+		<span class="label">City Name: </span>
+		<span class="weather-data city-name"></span>
+	</p>
+
+	<p>
+		<span class="label">Current Weather: </span>
+		<span class="weather-data current-weather"></span>
+	</p>
+
+	<p>
+		<span class="label">Temperature: </span>
+		<span class="weather-data temp"></span>
+	</p>
+
+	<p>
+		<span class="label">Humidity: </span>
+		<span class="weather-data humidity"></span>
+	</p>
+
+	<img id="icon" src="">
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>
+// step 1: clicking the btn makes the AJAX call for the city we put in the input
+// step 2: print the information onto the HTML page
+$('#cityLookup').click(getData);
+
+function getData() {
+	var city = $('#city').val();
+	$.getJSON('http://api.openweathermap.org/data/2.5/weather', 
+		{
+			// url parameters
+			q: city,
+			// appid is the authentication key. should sign up and make an account if calling APIs from a third-party
+			appid: '44db6a862fba0b067b1930da0d769e98',
+			units: 'imperial'
+		},
+		function(data) {
+
+		// print out the city name
+		$('.city-name').text(data.name);
+
+		// print out the weather description
+		$('.current-weather').text(data.weather[0].description);
+
+		// print out the temperature
+		$('.temp').text(data.main.temp);
+
+		// print out the humidity
+		$('.humidity').text(data.main.humidity);
+
+		$('#icon').attr('src', 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png');
+	});
+}
+
+
+</script>
+
+<script>
+// JSON files look like objects, but the properties also need to be 
+// {
+// 	'animals': ['tiger', 'bear', 'elephant']
+// }
+
+// there is a built in JS function that will parse JSON and put it into an object
+
+var parsed = JSON.parse('{"jelly": "fish"}');
+
+parsed; // returns {jelly: 'fish'}
+
+// asynchronous AJAX calls - if you're calling a server that's busy, or your connection is slow, this will not hold up loading the page. 
+
+// AJAX stands for Asynchronous JavaScript and XML
+
+// XMLHTTPRequest is an AJAX call (even if it's not grabbing XML)
+
+// $.ajax(); generic AJAX call, does all the things, but we'll use .getJSON for now
+// $.get(); - get request
+// $.post(); - post request
+
+// syntax: $.getJSON( url [, data = plain object or string sent to the server with the request ] [, success = callback function that executes on success ] );
+
+// data has the parameters from the url: http://api.openweathermap.org/data/2.5/weather?zip=11211,us&appid=44db6a862fba0b067b1930da0d769e98
+
+$.getJSON('http://api.openweathermap.org/data/2.5/weather', 
+	{
+		// url parameters
+		zip: '11211,us',
+		// appid is the authentication key. should sign up and make an account if calling APIs from a third-party
+		appid: '44db6a862fba0b067b1930da0d769e98',
+		units: 'imperial'
+	},
+	function(data) {
+	console.log(data);
+
+	// print out the city name
+	console.log(data.name);
+
+	// print out the weather description
+	console.log(data.weather[0].description);
+
+	// print out the temperature
+	console.log(data.main.temp);
+
+	// print out the humidity
+	console.log(data.main.humidity);
+});
+
+</script>
+
+
+
+	<script>
+// create an object
+
+var aboutMyCat = {
+	name: 'Lumpy',
+	age: 5,
+	isAScaredyCat: true,
+	sayMeow: function sayMeow() { console.log('meow');},
+	favoriteThings: ['receipts', 'string', 'twisty ties', 'post-its']
+};
+	</script>
+</body>
+</html>

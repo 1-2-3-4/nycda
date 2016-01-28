@@ -7,6 +7,7 @@
 <body>
 	
 	<script>
+
 var aboutMe = {
 	name: 'Nicole',
 	age: 'mysterious',
@@ -86,7 +87,7 @@ for(i = 0; i < myCats.length; i++) {
 
 // this function will fail unless you pass an object as 'cat'
 /* 
-Describes a vat
+Describes a cat
 Input: cat object
 */
 function describeCat(cat) {
@@ -165,7 +166,8 @@ var aboutBooks = [
 for (i = 0; i < aboutBooks.length; i++) {
 	var cBook = aboutBooks[i];
 	var cBookTitle = cBook.title + ' by ' + cBook.author;
-	if (cBook.alreadyRead === true) {
+	//if boolean is true
+	if (cBook.alreadyRead) {
 		console.log('You already read ' + cBookTitle);
 	}
 	else {
@@ -184,18 +186,19 @@ var faveMovies = {
 	title: 'The Lord of the Rings Trilogy',
 	duration: 600,
 	stars: ['Cate Blanchett', 'Elijah Wood', 'Viggo Mortensen']
-}
+};
 
 function movieInfo(movieObject) {
-	var stars = movieObject.stars;
-	var starsArray = 'Stars: ';
-	for(i = 0; i < stars.length; i++) {
-		starsArray += stars[i];
-		if(i < stars.length - 1) {
-			starsArray += ', ';
-		}
-	}
-	console.log(movieObject.title + ' lasts for ' + movieObject.duration + ' minutes. ' + starsArray);
+	// var stars = movieObject.stars;
+	// var starsString = 'Stars: ';
+	// long way of doing comma separating an array
+	// for(i = 0; i < stars.length; i++) {
+	// 	starsArray += stars[i];
+	// 	if(i < stars.length - 1) {
+	// 		starsArray += ', ';
+	// 	}
+	// }
+	console.log(movieObject.title + ' lasts for ' + movieObject.duration + ' minutes. Stars:' + movieObject.stars.join(', '));
 }
 
 movieInfo(faveMovies);
