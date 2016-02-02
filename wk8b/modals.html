@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Modal Tutorial</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<style>
+* {
+	box-sizing: border-box;
+	/* this will make it so you can add padding without worrying about changing width and height on boxes */
+}
+body {
+	padding: 0;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.prevent-scroll {
+	overflow: hidden;
+	padding-right: 15px;
+}
+.modal-wrapper {
+	background-color: rgba(0,0,0,0.4);
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+}
+.modal {
+	background-color: #fff;
+	height: 200px;
+	width: 400px;
+	position: relative;
+	text-align: center;
+	border-radius: 10px;
+	margin: 0 auto;
+	top: 50%;
+	margin-top: -100px;
+}
+.exit {
+	position: absolute;
+	right: -10px;
+	top: -10px;
+	color: #f9f9f9;
+	background-color: #545454;
+	padding: 6px 8px;
+	border-radius: 50%;
+}
+h3 {
+	margin: 0;
+	padding: 60px;
+	color: #888888;
+	font-weight: normal;
+}
+.yes, .no {
+	display: inline-block;
+	width: 50%;
+	color: #f9f9f9;
+	text-decoration: none;
+	padding: 20px 0;
+	position: absolute;
+	bottom: 0;
+}
+.exit:hover {
+	background-color: #656565;
+}
+.yes:hover,
+.no:hover {
+	opacity: 0.7;
+	cursor: pointer;
+}
+.no {
+	background-color: #FF748C;
+	left: 0;
+	border-bottom-left-radius: 9px;
+}
+.yes {
+	background-color: #45C791;
+	right: 0;
+	border-bottom-right-radius: 9px;
+}
+.main {
+	width: 60%;
+	margin: 0 auto;
+}
+p {
+	line-height: 1.7em;
+	color: #5a5a5a;
+}
+	</style>
+</head>
+<body>
+
+	<div class="modal-wrapper">
+		<div class="modal">
+			<a href="#" class="exit"><i class="fa fa-close"></i></a>
+			<h3>Are you sure you want to quit?</h3>
+			<a href="#" class="no">No</a>
+			<a href="#" class="yes">Yes</a>
+		</div>
+	</div>
+	
+	<div class="main">
+		<h1>Page Name</h1>
+
+		<h2>Subtitle</h2>
+
+		<button class="open-modal">Open Modal</button>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias provident ipsa officiis enim voluptas tempore praesentium quidem sit similique inventore iste delectus, consequuntur repellat, qui magnam omnis, quisquam voluptatem obcaecati?</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias provident ipsa officiis enim voluptas tempore praesentium quidem sit similique inventore iste delectus, consequuntur repellat, qui magnam omnis, quisquam voluptatem obcaecati?</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias provident ipsa officiis enim voluptas tempore praesentium quidem sit similique inventore iste delectus, consequuntur repellat, qui magnam omnis, quisquam voluptatem obcaecati?</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias provident ipsa officiis enim voluptas tempore praesentium quidem sit similique inventore iste delectus, consequuntur repellat, qui magnam omnis, quisquam voluptatem obcaecati?</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias provident ipsa officiis enim voluptas tempore praesentium quidem sit similique inventore iste delectus, consequuntur repellat, qui magnam omnis, quisquam voluptatem obcaecati?</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias provident ipsa officiis enim voluptas tempore praesentium quidem sit similique inventore iste delectus, consequuntur repellat, qui magnam omnis, quisquam voluptatem obcaecati?</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias provident ipsa officiis enim voluptas tempore praesentium quidem sit similique inventore iste delectus, consequuntur repellat, qui magnam omnis, quisquam voluptatem obcaecati?</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias provident ipsa officiis enim voluptas tempore praesentium quidem sit similique inventore iste delectus, consequuntur repellat, qui magnam omnis, quisquam voluptatem obcaecati?</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias provident ipsa officiis enim voluptas tempore praesentium quidem sit similique inventore iste delectus, consequuntur repellat, qui magnam omnis, quisquam voluptatem obcaecati?</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias provident ipsa officiis enim voluptas tempore praesentium quidem sit similique inventore iste delectus, consequuntur repellat, qui magnam omnis, quisquam voluptatem obcaecati?</p>
+
+	</div>
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script>
+// built in pop-up functions are alert, prompt, and confirm
+
+//stop propagation -> prevents a click from affecting the parent
+
+// build modal from scratch: 
+// need a wrapper to make the screen looked greyed out, and need a div that has the stuff
+	$('.open-modal').click(function() {
+		//open modal
+		$('.modal-wrapper').show();
+		//prevent scrolling of background
+		toggleOverflow();
+	});
+
+	$('.modal').click(function(e) {
+		e.stopPropagation();
+	});
+
+	$('.exit, .no, .modal-wrapper').click(function(e) {
+		e.preventDefault();
+		//hide modal
+		$('.modal-wrapper').hide();
+		//prevent scrolling of background
+		toggleOverflow();
+	});
+
+	function toggleOverflow() {
+		$('body').toggleClass('prevent-scroll');
+	}
+	</script>
+</body>
+</html>

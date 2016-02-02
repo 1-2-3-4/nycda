@@ -31,10 +31,6 @@
 		margin-bottom: 15px;
 		position: relative;
 	}
-	#userReply {
-		display: none;
-	}
-	#userReply,
 	#userGuess {
 		height: 50px;
 		position: absolute;
@@ -72,6 +68,9 @@
 		text-align: left;
 		margin-left: 20px;
 	}
+	.computerTxt.new-color {
+		background-color: #BCDEFB;
+	}
 	.computerTxt::before {
 		content: '';
 		position: absolute;
@@ -80,6 +79,9 @@
 		left: -10px;
 		border: 9px solid;
 		border-color: transparent transparent #FFDE90;
+	}
+	.computerTxt.new-color::before {
+		border-color: transparent transparent #BCDEFB;
 	}
 	.userTxt-container {
 		-webkit-align-self: flex-end;

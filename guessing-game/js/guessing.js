@@ -1,20 +1,22 @@
 $( document ).ready(function() {
 	//declare global variables
 	var userNumber = '';
-	var computerResponse = '';
-	var userReply = '';
+	// var userReply = '';
+	var userWon = false;
+	var textIsYellow = true;
+	var ifNumber;
 	var computerNumber;
 	var randomEmoji;
-	var emojis = ['(و˃ᴗ˂)و', '(╯°□°）╯︵ ┻━┻', '＼（＾○＾）人（＾○＾）／', '(✿ ♥‿♥)', '\\(^-^)/', ];
-
+	var emojis = ['(و˃ᴗ˂)و', '＼（＾○＾）人（＾○＾）／', '(✿ ♥‿♥)', '\\(^-^)/', '٩( ´◡` )۶', '(つ◕౪◕)つ━☆ﾟ.*･｡ﾟ', '♪ヽ( ⌒o⌒)/', '(~˘▾˘)~'];
+	var doesNotCompute = ['Does not compute へ[ •́‸ •̀ ]ʋ', 'I only understand numbers (◕︿◕✿)', 'lol wut (・_・ヾ', 'y u no write numbers?! (ლಠ益ಠ)ლ', '(╯°□°）╯︵ ┻━┻', '(◡ ﹏ ◡)', 'ಠ_ಠ'];
+	var sadface = 0;
 	//initate game!
 	playGame();
 
 	function playGame() {
 		// pick random number and initiate prompt
 		initiateGuessing();
-		// focus on user input field
-		$('#userGuess').focus();
+		
 		// user picks a number
 		$('#userGuess').keydown(function(e){
 			// submit on enter
@@ -29,59 +31,53 @@ $( document ).ready(function() {
 				checkMyNum(userNumber);
 				// scroll to bottom of chatbox
 				scrollDown();
+				//if player won, play again
+				playAgain(userWon);
 			}
 		});
 	}	
 
 	function checkMyNum(guessNum) {
-		if (computerNumber < userNumber) {
-			printComputerReply('Too high! Guess again');
-		}
-		else if (computerNumber > userNumber){
-			printComputerReply('Too low! Guess again');
+		ifNumber = $.isNumeric(userNumber);
+		if (ifNumber === false) {
+			printComputerReply(doesNotCompute[sadface], textIsYellow);
+			scrollDown();
+			sadface++;
+			if (sadface === doesNotCompute.length) {
+				sadface = 0;
+			}
+			return userWon = false;
 		}
 		else {
-			// pick random emoji for the you win msg
-			randomEmoji = randomEmojis();
-			// print winning msg
-			printComputerReply('You win! ' + randomEmoji);
-			// ask play again?
-			printComputerReply('Play again?');
-			// swap inputs
-			$('#userReply').show().focus();
-			$('#userGuess').hide();
-			// get user answer
-			$('#userReply').keydown(function(e) {
-				if (e.keyCode === 13) {
-					//get user reply
-					userReply = $('#userReply').val();
-					printUserReply(userReply);
-					console.log('this is a user reply ' + userReply);
-					//clear user reply
-					$('#userReply').val('');
-					console.log('after clear ' + userReply);
-					//check if y or n
-					checkMyReply(userReply);
-				}
-			});
-		}
+			if (computerNumber < userNumber) {
+				printComputerReply('Too high! Guess again', textIsYellow);
+				return userWon = false;
+			}
+			else if (computerNumber > userNumber){
+				printComputerReply('Too low! Guess again', textIsYellow);
+				return userWon = false;
+			}
+			else {
+				// pick random emoji for the you win msg
+				randomEmoji = randomEmojis();
+				// print winning msg
+				printComputerReply('You win! ' + randomEmoji, textIsYellow);
+				printComputerReply('Let\'s play again!', textIsYellow);
+				return userWon = true;
+			}
+		}	
 	}
 
-	function checkMyReply(reply) {
-		if ((reply === 'y' || reply === 'yes') || (reply === 'Y' || reply === 'Yes')){
-			//if yes, generate new computerNum and show prompt msg
-			initiateGuessing();
-			scrollDown();
-			//show the num field, hide reply field
-			$('#userReply').hide();
-			$('#userGuess').show().focus();
-			return computerNumber;
+	function playAgain(userWon) {
+		if (userWon) {
+			//set new bg color for computer
+			textIsYellow = !textIsYellow;
+			//wait a minute before initiating new game
+			setTimeout(initiateGuessing, 1350);
+			return textIsYellow;
 		}
 		else {
-			//if no, sadface and quit out of function
-			printComputerReply('okay :(');
-			scrollDown();	
-			return false;
+			//do nothing
 		}
 	}
 
@@ -96,14 +92,24 @@ $( document ).ready(function() {
 	function initiateGuessing() {
 		// computer picks a number from 1-100
 		computerNumber = randomNum();	
+		// print in console for hacks
 		console.log(computerNumber);
 		// print initiate prompt
-		printComputerReply('I\'m thinking of a number between 1 &amp; 100');
+		printComputerReply('I\'m thinking of a number between 1 &amp; 100', textIsYellow);
+		// focus on guess field 
+		$('#userGuess').focus();
+		scrollDown();
 		return computerNumber;
 	}
 
-	function printComputerReply(computerReply) {
-		$('#guessing-text').append('<div class="computerTxt-container"><i class="fa fa-terminal"></i><span class="computerTxt">' + computerReply + '</span></div>');
+	function printComputerReply(computerReply, textIsYellow) {
+		if (textIsYellow) {
+			$('#guessing-text').append('<div class="computerTxt-container"><i class="fa fa-terminal"></i><span class="computerTxt">' + computerReply + '</span></div>');
+		}
+		else {
+			$('#guessing-text').append('<div class="computerTxt-container"><i class="fa fa-terminal"></i><span class="computerTxt new-color">' + computerReply + '</span></div>');
+		}
+		
 	}
 
 	function printUserReply(text) {
@@ -126,13 +132,43 @@ $( document ).ready(function() {
 
 ＼（＾○＾）人（＾○＾）／
 
-(◡ ﹏ ◡✿)
+ಠಿ ˑ̫ ಠಿ
+
+＼(^ω^＼)
+
+ヘ(^0^)ヘ
+
+(~˘▾˘)~
+
+┗(＾0＾)┓
+
+(つ◕౪◕)つ━☆ﾟ.*･｡ﾟ
+
+♪ヽ( ⌒o⌒)/
+
+٩( ´◡` )۶
+
+(◡ ﹏ ◡)
 
 (◕ ﹏ ◕)
 
 (╥﹏╥)
 
 (Ͼ˳Ͽ)
+
+ಠ_ಠ
+
+へ[ •́‸ •̀ ]ʋ
+
+(◕︿◕✿)
+
+┏༼ ◉ ╭╮ ◉༽┓ 
+
+(⌯˃̶᷄ ﹏ ˂̶᷄⌯)
+
+(ლಠ益ಠ)ლ
+
+(・_・ヾ
 
 */
 

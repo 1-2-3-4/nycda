@@ -28,9 +28,6 @@
     border-radius: 20px;
     margin-bottom: 15px;
     position: relative; }
-  #guessing-container #userReply {
-    display: none; }
-  #guessing-container #userReply,
   #guessing-container #userGuess {
     height: 50px;
     position: absolute;
@@ -63,6 +60,8 @@
     background-color: #FFDE90;
     text-align: left;
     margin-left: 20px; }
+  #guessing-container .computerTxt.new-color {
+    background-color: #BCDEFB; }
   #guessing-container .computerTxt::before {
     content: '';
     position: absolute;
@@ -71,6 +70,8 @@
     left: -10px;
     border: 9px solid;
     border-color: transparent transparent #FFDE90; }
+  #guessing-container .computerTxt.new-color::before {
+    border-color: transparent transparent #BCDEFB; }
   #guessing-container .userTxt-container {
     -webkit-align-self: flex-end;
     -ms-flex-item-align: end;
